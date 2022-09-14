@@ -73,7 +73,11 @@ end
 local function go_return_values(args, parent, user_args)
 	local node = ts_utils.get_node_at_cursor()
 	while node ~= nil do
-		if node:type() == "function_declaration" or node:type() == "func_literal" then
+		if
+			node:type() == "function_declaration"
+			or node:type() == "func_literal"
+			or node:type() == "method_declaration"
+		then
 			break
 		end
 		node = node:parent()
