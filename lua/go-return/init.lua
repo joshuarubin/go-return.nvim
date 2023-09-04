@@ -1,5 +1,4 @@
 local ts_utils = require("nvim-treesitter.ts_utils")
-local ts_query = require("vim.treesitter.query")
 local luasnip = require("luasnip")
 
 local M = {}
@@ -101,7 +100,7 @@ local function go_return_values(args, parent, user_args)
 
 	-- text can be a single value like "float64" or "error"
 	-- or a list
-	local text = ts_query.get_node_text(result, 0)
+	local text = vim.treesitter.get_node_text(result, 0)
 
 	local results = split_go_args(text)
 
